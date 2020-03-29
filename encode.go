@@ -83,9 +83,8 @@ func (tokens *tokenData) startEnvelope() {
 			Local: "soapenv:Envelope",
 		},
 		Attr: []xml.Attr{
-			{Name: xml.Name{Space: "", Local: "xmlns:xsi"}, Value: "http://www.w3.org/2001/XMLSchema-instance"},
-			{Name: xml.Name{Space: "", Local: "xmlns:xsd"}, Value: "http://www.w3.org/2001/XMLSchema"},
-			{Name: xml.Name{Space: "", Local: "xmlns:soap"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
+			{Name: xml.Name{Space: "", Local: "xmlns:soapenv"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
+			{Name: xml.Name{Space: "", Local: "xmlns:xsd"}, Value: "http://tempuri.org/"},
 		},
 	}
 
