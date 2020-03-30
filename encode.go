@@ -120,9 +120,7 @@ func (tokens *tokenData) startHeader(m, n string) {
 			Space: "",
 			Local: m,
 		},
-		Attr: []xml.Attr{
-			{Name: xml.Name{Space: "", Local: "xmlns"}, Value: n},
-		},
+		Attr: []xml.Attr{},
 	}
 
 	tokens.data = append(tokens.data, h, r)
