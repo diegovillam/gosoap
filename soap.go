@@ -57,8 +57,8 @@ type Client struct {
 }
 
 // Call call's the method m with Params p
-func (c *Client) Call(m string, p Params) (res *Response, err error) {
-	return c.Do(NewRequest(m, p))
+func (c *Client) Call(m string, p Params, a string) (res *Response, err error) {
+	return c.Do(NewRequest(m, p, a))
 }
 
 // Call call's by struct
@@ -126,9 +126,13 @@ func (c *Client) Do(req *Request) (res *Response, err error) {
 	}
 
 	p := &process{
-		Client:     c,
-		Request:    req,
-		SoapAction: c.Definitions.GetSoapActionFromWsdlOperation(req.Method),
+		Client:  c,
+		Request: req,
+	}
+	if req.Action == "" {
+		p.SoapAction = c.Definitions.GetSoapActionFromWsdlOperation(req.Method)
+	} else {
+		p.SoapAction = req.Action
 	}
 
 	if p.SoapAction == "" {

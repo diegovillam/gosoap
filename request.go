@@ -8,12 +8,14 @@ import (
 type Request struct {
 	Method string
 	Params Params
+	Action string
 }
 
-func NewRequest(m string, p Params) *Request {
+func NewRequest(m string, p Params, a string) *Request {
 	return &Request{
 		Method: m,
 		Params: p,
+		Action: a,
 	}
 }
 
