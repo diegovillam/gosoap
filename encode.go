@@ -84,7 +84,7 @@ func (tokens *tokenData) startEnvelope() {
 		},
 		Attr: []xml.Attr{
 			{Name: xml.Name{Space: "", Local: "xmlns:soapenv"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
-			{Name: xml.Name{Space: "", Local: "xmlns:xsd"}, Value: "http://tempuri.org/"},
+			{Name: xml.Name{Space: "", Local: "xmlns:tem"}, Value: "http://tempuri.org/"},
 		},
 	}
 
@@ -171,9 +171,7 @@ func (tokens *tokenData) startBody(m, n string) error {
 			Space: "",
 			Local: m,
 		},
-		Attr: []xml.Attr{
-			{Name: xml.Name{Space: "", Local: "xmlns"}, Value: n},
-		},
+		Attr: []xml.Attr{},
 	}
 
 	tokens.data = append(tokens.data, b, r)
